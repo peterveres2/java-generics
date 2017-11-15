@@ -1,23 +1,32 @@
 package com.epam.generics.basic;
 
 /**
+ * 
+ * 
+ */
+public class BoxDemo {
+	public static void main(String[] args) {
+		Box<String> stringBox = new Box<>();
+		stringBox.set("Generics is fun");
+		
+	}
+}
+
+/**
  * Generic version of the Box class.
  * 
  * @param <T>
  *            the type of the value being boxed
  */
-public class BoxDemo {
+class Box<T> {
+	// T stands for "Type"
+	private T t;
 
-}
-
-class Box {
-	private Object object;
-
-	public void set(Object object) {
-		this.object = object;
+	public void set(T t) {
+		this.t = t;
 	}
 
-	public Object get() {
-		return object;
+	public T get() {
+		return t;
 	}
 }

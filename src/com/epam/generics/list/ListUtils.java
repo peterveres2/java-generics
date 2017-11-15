@@ -18,11 +18,6 @@ public class ListUtils {
 		return result;
 	}
 
-	public static void inPlaceReverse(MinimaList list) {
-		MinimaList tmp = reverse(list);
-		list.clear();
-		list.addAll(tmp);
-	}
 
 	public static Object max(MinimaList items) {
 		Object max = null;

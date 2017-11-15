@@ -9,9 +9,4 @@ class WordBox<S extends CharSequence> extends Box<String> {
 		super.set(t.toString().toLowerCase());
 	}
 	
-	@Override
-	public void set(String t) {
-		// TODO Auto-generated method stub
-		super.set(t);
-	}
 }
