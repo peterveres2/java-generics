@@ -1,5 +1,5 @@
 package com.epam.generics.strategy.advanced;
 
-public interface TaxStrategy {
-	long calculateTax(TaxPayer p);
+public interface TaxStrategy <T extends TaxPayer<T>> {
+	long calculateTax(T p);
 }

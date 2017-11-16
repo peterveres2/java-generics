@@ -1,10 +1,10 @@
 package com.epam.generics.strategy.advanced;
 
-public abstract class TaxPayer {
+public abstract class TaxPayer <T extends TaxPayer<T>> {
 	private final long myIncome;
-	private final TaxStrategy myTaxStrategy;
+	private final TaxStrategy<T> myTaxStrategy;
 
-	protected TaxPayer(long income, TaxStrategy taxStrategy) {
+	protected TaxPayer(long income, TaxStrategy<T> taxStrategy) {
 		myIncome = income;
 		myTaxStrategy = taxStrategy;
 	}
@@ -14,6 +14,8 @@ public abstract class TaxPayer {
 	}
 
 	public long getTax() {
-		return myTaxStrategy.calculateTax(this);
+		return myTaxStrategy.calculateTax(getThis());
 	}
+	
+	abstract T getThis();
 }

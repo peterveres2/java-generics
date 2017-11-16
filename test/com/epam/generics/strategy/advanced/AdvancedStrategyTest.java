@@ -24,9 +24,9 @@ public class AdvancedStrategyTest {
 		assertThat(business.getTax(), is(3_000L));
 	}
 
-	@Test
-	public void testIncorrectStrategyForPerson() {
-		person = new Person(10_000, businessTaxStrategy, 2);
-		assertThat(person.getTax(), is(0L));
-	}
+//	@Test
+//	public void testIncorrectStrategyForPerson() {
+//		person = new Person(10_000, businessTaxStrategy, 2);
+//		assertThat(person.getTax(), is(0L));
+//	}
 }

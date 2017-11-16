@@ -1,10 +1,9 @@
 package com.epam.generics.strategy.advanced;
 
-public class PersonalTaxStrategy implements TaxStrategy {
+public class PersonalTaxStrategy implements TaxStrategy<Person> {
 
 	@Override
-	public long calculateTax(TaxPayer tp) {
-		Person person = (Person) tp;
+	public long calculateTax(Person person) {
 		return (long) (person.getIncome() * 0.1 * getTaxAdjustment(person));
 	}
 
