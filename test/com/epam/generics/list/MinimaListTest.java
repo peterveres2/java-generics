@@ -131,6 +131,15 @@ public class MinimaListTest {
 //		assertEquals(ferrari, cars.get(2));
 //	}
 //
+	
+//	@Test
+//	public void testAddElementsToAnUnknownList() {
+//		MinimaList<Integer> intList = new MinimaList<>(Integer.class);
+//		MinimaList<? extends Number> unknownList = intList;		
+//		
+//		((MinimaList<Integer>)unknownList).add(1d);
+//	}
+	
 	@Test
 	public void testAddDoublesToNumberList() {
 		MinimaList<Number> numbers = new MinimaList<>(Number.class);
