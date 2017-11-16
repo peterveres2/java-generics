@@ -9,11 +9,11 @@ import java.util.NoSuchElementException;
 public class MinimaList<T> implements Iterable<T> {
 	private final T[] myArray;
 	private int myElementCount = 0;
-	private final Class<?> type;
+	private final Class<T> type;
 	
 	
 	@SuppressWarnings("unchecked")
-	public MinimaList(Class<?> type) {
+	public MinimaList(Class<T> type) {
 		super();
 		this.type = type;
 		myArray = (T[]) Array.newInstance(type, 100);
