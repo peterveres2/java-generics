@@ -18,18 +18,18 @@ public class ListUtilsTest {
 		assertArrayEquals(expected, reversed);
 	}
 
-	@Test
-	public void testReverseList() {
-		MinimaList input = new MinimaList();
-		input.add("hello");
-		input.add("world");
-
-		MinimaList expected = new MinimaList();
-		expected.add("world");
-		expected.add("hello");
-
-		MinimaList reversed = ListUtils.reverse(input);
-
-		assertEquals(expected, reversed);
-	}
+//	@Test
+//	public void testReverseList() {
+//		MinimaList input = new MinimaList();
+//		input.add("hello");
+//		input.add("world");
+//
+//		MinimaList expected = new MinimaList();
+//		expected.add("world");
+//		expected.add("hello");
+//
+//		MinimaList reversed = ListUtils.reverse(input);
+//
+//		assertEquals(expected, reversed);
+//	}
 }

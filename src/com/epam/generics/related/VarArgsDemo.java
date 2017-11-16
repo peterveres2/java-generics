@@ -6,10 +6,10 @@ public class VarArgsDemo {
 	public static void main(String[] args) {
 		String[] strings = { "String1", "String2" };
 		Object[] objects = { "Object1", "Object2" };
-
+		
 		// no warning
 		Object[] stringsAsObjects = strings;
-
+				
 		// no warning
 		arrayTest(strings);
 		arrayTest(objects);
@@ -24,6 +24,7 @@ public class VarArgsDemo {
 
 		varargTest((Object) strings); 
 		varargTest((Object[]) strings); 
+		
 	}
 
 	public static void arrayTest(Object[] p) {
