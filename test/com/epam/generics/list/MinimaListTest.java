@@ -4,10 +4,17 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 import org.junit.Test;
+
+import com.epam.generics.list.comparator.Car;
+import com.epam.generics.list.comparator.Lorry;
+import com.epam.generics.list.comparator.LorryByLoadComparator;
+import com.epam.generics.list.comparator.VehicleBySpeedComparator;
 
 
 
@@ -101,36 +108,45 @@ public class MinimaListTest {
 		assertEquals("world", array[1]);
 	}
 
-//	@Test
-//	public void testSortLorriesBySpeed() {
-//		Lorry smallTruck = new Lorry(300, 500, 5_000);
-//		Lorry midTruck = new Lorry(500, 700, 8_000);
-//		Lorry bigTruck = new Lorry(1_000, 1_000, 12_000);
-//		MinimaList lorries = new MinimaList();
-//		lorries.add(midTruck);
-//		lorries.add(bigTruck);
-//		lorries.add(smallTruck);
-//		lorries.sort(new LorryByLoadComparator());
-//		assertEquals(smallTruck, lorries.get(0));
-//		assertEquals(midTruck, lorries.get(1));
-//		assertEquals(bigTruck, lorries.get(2));
-//	}
+	@Test
+	public void testSortLorriesBySpeed() {
+		Lorry smallTruck = new Lorry(300, 500, 5_000);
+		Lorry midTruck = new Lorry(500, 700, 8_000);
+		Lorry bigTruck = new Lorry(1_000, 1_000, 12_000);
+		MinimaList<Lorry> lorries = new MinimaList<>(Lorry.class);
+		lorries.add(midTruck);
+		lorries.add(bigTruck);
+		lorries.add(smallTruck);
+		lorries.sort(new LorryByLoadComparator());
+		assertEquals(smallTruck, lorries.get(0));
+		assertEquals(midTruck, lorries.get(1));
+		assertEquals(bigTruck, lorries.get(2));
+	}
+
+	@Test
+	public void testSortCarsBySpeed() {
+		Car ferrari = new Car(300, 500, 2);
+		Car stone = new Car(0, 0, 0);
+		Car suzuki = new Car(130, 70, 5);
+		MinimaList<Car> cars = new MinimaList<>(Car.class);
+		cars.add(ferrari);
+		cars.add(stone);
+		cars.add(suzuki);
+		cars.sort(new VehicleBySpeedComparator());
+		
+//		cars.sort(new Comparator<Object>() {
 //
-//	@Test
-//	public void testSortCarsBySpeed() {
-//		Car ferrari = new Car(300, 500, 2);
-//		Car stone = new Car(0, 0, 0);
-//		Car suzuki = new Car(130, 70, 5);
-//		MinimaList cars = new MinimaList();
-//		cars.add(ferrari);
-//		cars.add(stone);
-//		cars.add(suzuki);
-//		cars.sort(new VehicleBySpeedComparator());
-//		assertEquals(stone, cars.get(0));
-//		assertEquals(suzuki, cars.get(1));
-//		assertEquals(ferrari, cars.get(2));
-//	}
-//
+//			@Override
+//			public int compare(Object o1, Object o2) {
+//				return new Random().nextInt();
+//			}
+//			
+//		});
+		assertEquals(stone, cars.get(0));
+		assertEquals(suzuki, cars.get(1));
+		assertEquals(ferrari, cars.get(2));
+	}
+
 	
 //	@Test
 //	public void testAddElementsToAnUnknownList() {
@@ -158,4 +174,14 @@ public class MinimaListTest {
 		assertEquals(4.0d, numbers.get(3));
 	}
 
+	
+//	class MyComparator implements Comparator<Lorry> {
+//
+//		@Override
+//		public int compare(Lorry o1, Lorry o2) {
+//			// TODO Auto-generated method stub
+//			return o1.getHorsePowers() - o2.getHorsePowers();
+//		}
+//		
+//	}
 }

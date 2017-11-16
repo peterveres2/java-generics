@@ -95,7 +95,7 @@ public class MinimaList<T> implements Iterable<T> {
 		return hash;
 	}
 
-	public void sort(Comparator<T> comparator) {
+	public void sort(Comparator<? super T> comparator) {
 		Arrays.sort(myArray, 0, myElementCount, comparator);
 	}
 
@@ -122,4 +122,10 @@ public class MinimaList<T> implements Iterable<T> {
 			throw new UnsupportedOperationException();
 		}
 	}
+
+	public Class<T> getType() {
+		return type;
+	}
+	
+	
 }
