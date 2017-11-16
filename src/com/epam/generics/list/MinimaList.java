@@ -28,8 +28,8 @@ public class MinimaList<T> implements Iterable<T> {
 		myElementCount = 0;
 	}
 
-	public void addAll(MinimaList<T> otherList) {
-		for (Iterator<T> iterator = otherList.iterator(); iterator.hasNext();) {
+	public void addAll(MinimaList<? extends T> otherList) {
+		for (Iterator<? extends T> iterator = otherList.iterator(); iterator.hasNext();) {
 			T o = iterator.next();
 			add(o);
 		}

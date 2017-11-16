@@ -69,7 +69,7 @@ public class MinimaListTest {
 
 		assertThat(numbers.toString(), is("[1, 2.0, 3.0]"));
 	}
-
+	
 	@Test(expected = NoSuchElementException.class)
 	public void testIterator() {
 		listUnderTest.add("hello");
@@ -131,22 +131,22 @@ public class MinimaListTest {
 //		assertEquals(ferrari, cars.get(2));
 //	}
 //
-//	@Test
-//	public void testAddDoublesToNumberList() {
-//		MinimaList numbers = new MinimaList();
-//		numbers.add(1);
-//		numbers.add(2.0f);
-//		numbers.add(3.0d);
-//		assertEquals(1, numbers.get(0));
-//		assertEquals(2.0f, numbers.get(1));
-//		assertEquals(3.0d, numbers.get(2));
-//
-//		MinimaList doubles = new MinimaList();
-//		doubles.add(4.0d);
-//
-//		numbers.addAll(doubles);
-//
-//		assertEquals(4.0d, numbers.get(3));
-//	}
+	@Test
+	public void testAddDoublesToNumberList() {
+		MinimaList<Number> numbers = new MinimaList<>(Number.class);
+		numbers.add(1);
+		numbers.add(2.0f);
+		numbers.add(3.0d);
+		assertEquals(1, numbers.get(0));
+		assertEquals(2.0f, numbers.get(1));
+		assertEquals(3.0d, numbers.get(2));
+
+		MinimaList<Double> doubles = new MinimaList<>(Double.class);
+		doubles.add(4.0d);
+
+		numbers.addAll(doubles);
+
+		assertEquals(4.0d, numbers.get(3));
+	}
 
 }
