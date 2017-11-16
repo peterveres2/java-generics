@@ -1,11 +1,9 @@
 package com.epam.generics.strategy.simple;
 
-public class BusinessTaxStrategy implements TaxStrategy {
+public class BusinessTaxStrategy implements TaxStrategy<Business> {
 
 	@Override
-	public long calculateTax(TaxPayer p) {
-		Business b = (Business) p;
-
+	public long calculateTax(Business b) {
 		double rate;
 		if (isSmall(b)) {
 			rate = 0.1;
